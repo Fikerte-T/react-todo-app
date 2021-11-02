@@ -6,6 +6,7 @@ import InputTodo from "./InputTodo";
 import { v4 as uuid4 } from "uuid";
 import About from "../pages/About";
 import NotMatch from "../pages/NotMatch";
+import Navbar from "./Navbar";
 
 const TodoContainer = () => {
     const [todos, setTodos] = useState(getInitialTodos())  
@@ -63,28 +64,31 @@ const TodoContainer = () => {
     },[todos])
 
         return (
-        <Switch>
-         <Route exact path="/">
-                <div className="container">
-                   <div className="inner">
-                    <Header/>
-                    <InputTodo addTodoProps={addTodoItem}/>
-                    <TodoList 
-                        todos={todos} 
-                        handleChangeProps={handleChange}
-                        deleteTodoProps={delTodo}
-                        setUpdate={setUpdate}
-               />
-           </div>
+            <>
+            <Navbar />
+            <Switch>
+            <Route exact path="/">
+                    <div className="container">
+                    <div className="inner">
+                        <Header/>
+                        <InputTodo addTodoProps={addTodoItem}/>
+                        <TodoList 
+                            todos={todos} 
+                            handleChangeProps={handleChange}
+                            deleteTodoProps={delTodo}
+                            setUpdate={setUpdate}
+                />
             </div>
-         </Route>
-         <Route path = "/about">
-             <About />
-         </Route>
-         <Route path = "/*">
-             <NotMatch />
-         </Route>
-         </Switch>
+                </div>
+            </Route>
+            <Route path = "/about">
+                <About />
+            </Route>
+            <Route path = "/*">
+                <NotMatch />
+            </Route>
+            </Switch>
+         </>
         )
 }
 export default TodoContainer;
