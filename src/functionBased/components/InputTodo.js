@@ -1,31 +1,31 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const InputTodo = props => {
-    const [inputText, setInputText] = useState({
-        title: ""
-    })
+const InputTodo = (props) => {
+  const [inputText, setInputText] = useState({
+    title: '',
+  });
 
-    const onChange = e => {
-        setInputText({
-            ...inputText,
-            [e.target.name]: e.target.value
-        })
+  const onChange = (e) => {
+    setInputText({
+      ...inputText,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputText.title.trim()) {
+      props.addTodoProps(inputText.title);
+      setInputText({
+        title: '',
+      });
+    } else {
+      alert('Please write item');
     }
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        if(inputText.title.trim()){
-            props.addTodoProps(inputText.title)
-            setInputText({
-                title: ""
-            })
-        }else {
-            alert("Please write item")
-        }
-    }
-    return(
+  };
+  return (
        <form onSubmit={handleSubmit} className="form-container">
-           <input 
+           <input
                type="text"
                className="input-text"
                placeholder="Add todo..."
@@ -35,6 +35,6 @@ const InputTodo = props => {
              />
              <button className="input-submit">Submit</button>
        </form>
-       )
-}
-export default InputTodo
+  );
+};
+export default InputTodo;
