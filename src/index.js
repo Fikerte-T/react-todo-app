@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './functionBased/App.css';
-// import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import TodoContainer from './functionBased/components/TodoContainer';
 import reportWebVitals from './reportWebVitals';

@@ -9,11 +9,6 @@ class TodoContainer extends React.Component {
       todos: [],
     };
 
-    //    componentDidMount() {
-    //        fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
-    //        .then(response => response.json())
-    //        .then(data=>this.setState({todos: data}))
-    //    }
     componentDidUpdate(prevProps, prevState) {
       if (prevState.todos !== this.state.todos) {
         const temp = JSON.stringify(this.state.todos);
